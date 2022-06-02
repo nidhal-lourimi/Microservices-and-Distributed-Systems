@@ -16,11 +16,11 @@ public class FraudController {
     private final FraudCheckHistoryService fraudCheckHistoryService;
 
     @GetMapping(path ="{customerId}")
-    public FraudCheckResponse isFraudster(
+    public com.billcom.clients.FraudCheckResponse isFraudster(
             @PathVariable("customerId") Integer customerId){
         Boolean isFraudulentCustomer = fraudCheckHistoryService.isFraudulentCustomer(customerId);
         log.info("fraud check request for customer {}",customerId);
-        return new FraudCheckResponse(isFraudulentCustomer);
+        return new com.billcom.clients.FraudCheckResponse(isFraudulentCustomer);
     }
 }
 

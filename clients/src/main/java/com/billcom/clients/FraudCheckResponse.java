@@ -1,5 +1,4 @@
-package com.billcom.customer;
+package com.billcom.clients;
 
-@Deprecated
 public record FraudCheckResponse(Boolean isFraudster) {
 }

@@ -12,6 +12,8 @@
     <module>customer</module>
     <module>fraud</module>
     <module>eureka-server</module>
+      <module>clients</module>
+      <module>notification</module>
   </modules>
 
   <name>firstapp</name>
@@ -53,6 +55,11 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-openfeign</artifactId>
     </dependency>
 
   </dependencies>
