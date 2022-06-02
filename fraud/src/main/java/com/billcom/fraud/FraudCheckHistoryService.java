@@ -13,10 +13,11 @@ public class FraudCheckHistoryService {
     }
 
     public Boolean isFraudulentCustomer(Integer customerId){
-        fraudCheckHistoryRepository.save(FraudCheckHistory.builder()
+        FraudCheckHistory fraudCheckHistory = FraudCheckHistory.builder()
                 .customerId(customerId)
                 .isFraudster(false)
-                .createdAT(LocalDateTime.now()).build());
+                .createdAT(LocalDateTime.now()).build();
+        fraudCheckHistoryRepository.save(fraudCheckHistory);
         return false;
 
     }
