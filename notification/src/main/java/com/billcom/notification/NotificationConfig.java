@@ -8,10 +8,12 @@ import org.springframework.amqp.core.TopicExchange;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 @Configuration
 @Getter
 public class NotificationConfig {
+
     @Value("${rabbitmq.exchanges.internal}")
     private String internalExchange;
 
@@ -30,6 +32,7 @@ public class NotificationConfig {
         return new Queue(this.notificationQueue);
     }
 
+    @Bean
     public Binding internalNotification(){
         return BindingBuilder
                 .bind(notificationQueue())
@@ -39,9 +42,15 @@ public class NotificationConfig {
     }
 
 
+    public String getInternalExchange() {
+        return internalExchange;
+    }
 
+    public String getNotificationQueue() {
+        return notificationQueue;
+    }
 
-
-
-
+    public String getInternalNotificationRoutingKey() {
+        return internalNotificationRoutingKey;
+    }
 }

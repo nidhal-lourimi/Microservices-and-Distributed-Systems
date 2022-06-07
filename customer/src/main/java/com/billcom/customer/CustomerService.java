@@ -1,6 +1,8 @@
 package com.billcom.customer;
 
 
+
+import com.billcom.ampq.RabbitMQMessageProducer;
 import com.billcom.clients.FraudCheckResponse;
 import com.billcom.clients.FraudClient;
 import com.billcom.clients.NotificationClient;
@@ -17,6 +19,7 @@ public final class CustomerService {
     /*private final RestTemplate restTemplate;*/
      private final FraudClient fraudClient;
      private final NotificationClient notificationClient;
+     private final RabbitMQMessageProducer rabbitMQMessageProducer;
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder()
                 .firstName(request.firstName())
@@ -33,13 +36,26 @@ public final class CustomerService {
         FraudCheckResponse fraudCheckResponse = fraudClient.isFraudster(customer.getId());
         if (fraudCheckResponse.isFraudster()){
             throw new IllegalStateException("fraudster");
+
         }
-        notificationClient.sendNotification(new NotificationRequest(
+        /** without rabbitmq*/
+        /*notificationClient.sendNotification(new NotificationRequest(
                 customer.getId(),
                 customer.getEmail(),
                 String.format("mr(s) %s,you are to our home",customer.getFirstName())
-                ));
+                ));*/
 
+        /** with rabbitmq*/
+        NotificationRequest notificationRequest = new NotificationRequest(
+                customer.getId(),
+                customer.getEmail(),
+                String.format("mr(s) %s,you are to our home", customer.getFirstName())
+        );
+        rabbitMQMessageProducer.publish(
+                notificationRequest,
+                "internal.exchange",
+                "internal.notification.routing-key"
+                );
 
     }
 
