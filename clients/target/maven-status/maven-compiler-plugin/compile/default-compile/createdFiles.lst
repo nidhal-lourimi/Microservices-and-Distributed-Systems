@@ -1,0 +1,4 @@
+com\billcom\clients\FraudCheckResponse.class
+com\billcom\clients\FraudClient.class
+com\billcom\clients\NotificationClient.class
+com\billcom\clients\NotificationRequest.class
