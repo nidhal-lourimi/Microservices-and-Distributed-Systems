@@ -1,9 +1,0 @@
-com\billcom\customer\CustomerRepository.class
-com\billcom\customer\CustomerController.class
-com\billcom\customer\CustomerConfig.class
-com\billcom\customer\Customer.class
-com\billcom\customer\CustomerApplication.class
-com\billcom\customer\FraudCheckResponse.class
-com\billcom\customer\Customer$CustomerBuilder.class
-com\billcom\customer\CustomerRegistrationRequest.class
-com\billcom\customer\CustomerService.class

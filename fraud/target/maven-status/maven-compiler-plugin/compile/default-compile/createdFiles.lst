@@ -1,7 +1,0 @@
-com\billcom\fraud\FraudCheckHistory.class
-com\billcom\fraud\FraudCheckHistoryService.class
-com\billcom\fraud\FraudCheckHistoryRepository.class
-com\billcom\fraud\FraudController.class
-com\billcom\fraud\FraudApplication.class
-com\billcom\fraud\FraudCheckResponse.class
-com\billcom\fraud\FraudCheckHistory$FraudCheckHistoryBuilder.class

@@ -1,8 +1,0 @@
-com\billcom\notification\NotificationConfig.class
-com\billcom\notification\NotificationService.class
-com\billcom\notification\rabbitmq\NotificationConsumer.class
-com\billcom\notification\Notification$NotificationBuilder.class
-com\billcom\notification\Notification.class
-com\billcom\notification\NotificationRepository.class
-com\billcom\notification\NotificationController.class
-com\billcom\notification\NotificationApplication.class
