@@ -90,10 +90,10 @@
                     <configuration>
                         <from>
                             <image>eclipse-temurin:17</image>
-                        <!--    <auth>
+                            <auth>
                                 <username>nidhallourimi</username>
                                 <password>Nidhal98@</password>
-                            </auth>-->
+                            </auth>
                             <platforms>
                                 <platform>
                                     <architecture>arm64</architecture>
@@ -109,10 +109,11 @@
                             <tags>
                                 <tag>latest</tag>
                             </tags>
-                        <!--    <auth>
+                            <auth>
                                 <username>nidhallourimi</username>
+                               <!-- <password>${docker.password}</password>-->
                                 <password>Nidhal98@</password>
-                            </auth>-->
+                            </auth>
                         </to>
                     </configuration>
                     <executions>
