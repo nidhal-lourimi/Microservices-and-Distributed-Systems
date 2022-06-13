@@ -61,12 +61,59 @@ services:
     ports:
       - "8083:8083"
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
+      - "SPRING_PROFILES_ACTIVE=docker"
     networks:
       - spring
     depends_on:
       - zipkin
       - eureka-server
+  customer:
+    image: nidhallourimi/customer:latest
+    container_name: customer
+    ports:
+      - "8080:8080"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker"
+    networks:
+        - spring
+        - postgres
+    depends_on:
+      - zipkin
+      - eureka-server
+      - postgres
+      - rabbitmq
+  fraud:
+    image: nidhallourimi/fraud:latest
+    container_name: fraud
+    ports:
+      - "8081:8081"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker"
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - zipkin
+      - eureka-server
+      - rabbitmq
+      - postgres
+
+  notification:
+    image: nidhallourimi/notification:latest
+    container_name: notification
+    ports:
+      - "8082:8082"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker"
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - zipkin
+      - eureka-server
+      - rabbitmq
+      - postgres
+
 
 networks:
   postgres:
